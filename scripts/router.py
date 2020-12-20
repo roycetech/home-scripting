@@ -16,6 +16,7 @@ def reset():
     web.start()
 
     driver = web.driver
+    driver.implicitly_wait(3)
 
     driver.get(config.url)
     driver.set_window_size(1680, 947)
@@ -26,6 +27,8 @@ def reset():
     driver.find_element(By.ID, "name_addconfig").click()
     driver.find_element(By.ID, "name_maintaininfo").click()
     driver.switch_to.frame(0)
+    time.sleep(2)
+
     driver.find_element(By.ID, "btnsaveandreboot").click()
     driver.switch_to.alert.accept()
 
